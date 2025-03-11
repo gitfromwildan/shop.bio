@@ -37,7 +37,7 @@ function PageHome() {
     setIsDarkMode(darkModePreference);
     document.documentElement.classList.toggle('dark', darkModePreference);
   }, []);
-  
+
   interface Product {
     id: number;
     image: string;
@@ -46,7 +46,7 @@ function PageHome() {
     price: number;
     link: string;
   }
-  
+
   const allProductsData = useMemo(() => {
     return Object.values(ProductsData).flat()
   }, [])
@@ -56,16 +56,23 @@ function PageHome() {
       activeTab === "all"
         ? allProductsData
         : ProductsData[activeTab as keyof typeof ProductsData] || [];
-  
+
     return ProductsDataToFilter.filter((product: Product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [activeTab, searchTerm, allProductsData]);
-  
+
   return (
     <div className={`min-h-screen Rp{isDarkMode ? 'dark' : ''}`}>
       <div className="container max-w-4xl mx-auto px-4 py-8 bg-background text-foreground relative">
+        <Button
+            variant="secondary"
+            size="icon"
+            onClick={toggleDarkMode}
+            className="right-8 top-8 absolute z-50 rounded-full w-8 h-8 md:w-10 md:h-10 bg-accent dark:bg-secondary">
+            {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+        </Button>
         <header className="text-center mb-8">
           <Avatar className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4">
             <AvatarImage  alt={PROFILE.name} src={PROFILE.avatarUrl} />
@@ -97,8 +104,8 @@ function PageHome() {
                 All
               </TabsTrigger>
               {Object.keys(ProductsData).map((category) => (
-                <TabsTrigger 
-                  key={category} 
+                <TabsTrigger
+                  key={category}
                   value={category}
                   className="rounded-sm px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm font-medium transition-all hover:bg-background hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground"
                 >
@@ -141,13 +148,6 @@ function PageHome() {
           <p className="text-xs md:text-sm text-muted-foreground">
             © {new Date().getFullYear()} <span className='font-bold'>{PROFILE.name}</span> - All rights reserved.
           </p>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={toggleDarkMode}
-            className="fixed top-4 sm:right-[5%] right-4 z-50 rounded-full w-8 h-8 md:w-10 md:h-10 bg-background border-primary">
-            {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
         </footer>
       </div>
     </div>
