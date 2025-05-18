@@ -115,7 +115,7 @@ function PageHome() {
             </TabsList>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
-          <TabsContent value={activeTab} className="mt-6">
+          <TabsContent value={activeTab} className="mt-6 mb-auto min-h-[50vh]">
             <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProductsData.map((product: Product) => (
               <ProductCard key={product.id} product={product} />
