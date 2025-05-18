@@ -1,4 +1,4 @@
-![banner](banner.png)
+![banner](https://github.com/gitfromwildan/gitfromwildan/blob/main/banner.png)
 
 > I'm a **Frontend Developer** from Bandung, West Java - Indonesia.
 Born in 1994, I have a deep passion for programming and love building web applications.
