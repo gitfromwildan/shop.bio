@@ -80,7 +80,7 @@ function PageHome() {
           </Avatar>
           <div className="flex items-center justify-center mb-2">
             <h1 className="text-2xl md:text-3xl font-bold">{PROFILE.name}</h1>
-            <Badge className="ml-2 w-5 h-5 md:w-6 md:h-6 rounded-full p-0 flex items-center justify-center bg-blue-600">
+            <Badge className="ml-2 w-5 h-5 md:w-6 md:h-6 rounded-full p-0 flex items-center justify-center bg-blue-600 hover:bg-blue-700 transition-colors">
               <BadgeCheck className="h-3 w-3 md:h-4 md:w-4 text-white" />
             </Badge>
           </div>

@@ -9,7 +9,7 @@ export const PROFILE = {
     social: {
       SocialOne: {
         name: "GitHub", // change this to your social name
-        url: "https://github.com/mywildancloud", // change this to your social url
+        url: "https://github.com/gitfromwildan", // change this to your social url
       },
       SocialTwo: {
         name: "Instagram", // change this to your social name
